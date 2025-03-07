@@ -1,0 +1,1 @@
+In this folder there will be all files for modules between models, services and controllers.

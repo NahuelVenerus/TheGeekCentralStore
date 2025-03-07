@@ -1,0 +1,51 @@
+1. **User**:
+   - **Métodos Comunes**:
+     - `login(userLoginData): void` - Para iniciar sesión.
+     - `signup(userData): void` - Para registrarse.
+     - `addItemToCart(cartItemId): void` - Para agregar un ítem al carrito.
+     - `viewCart(): ShoppingCart` - Para ver el contenido del carrito.
+     - `checkout(cart: ShoppingCart): void` - Para proceder al pago de los ítems en el carrito.
+
+   - **Métodos de Admin**:
+     - `createProduct(productData): Product` - Para que el administrador cree nuevos productos.
+     - `updateProduct(productId, productData): void` - Para que el administrador actualice la información de un producto existente.
+     - `deleteProduct(productId): void` - Para que el administrador elimine un producto.
+     - `manageUsers(userData): void` - Para que el administrador gestione usuarios (actualización, eliminación).
+
+2. **Order**:
+   - `createOrder(orderData): Order`
+   - `updateOrderStatus(orderId, status): void`
+   - `getOrderDetails(orderId): Order`
+   - `cancelOrder(orderId): void`
+
+3. **ShoppingCart**:
+   - `addItem(productId, quantity): void`
+   - `removeItem(productId): void`
+   - `updateItemQuantity(productId, quantity): void`
+   - `getCartTotal(): double`
+   - `clearCart(): void`
+
+4. **Product**:
+   - `createProduct(productData): Product`
+   - `updateProduct(productId, productData): void`
+   - `deleteProduct(productId): void`
+   - `getProductDetails(productId): Product`
+   - `listProducts(): List<Product>`
+
+5. **ProductCategory**:
+   - `assignCategoryToProduct(productId, categoryId): void`
+   - `removeCategoryFromProduct(productId, categoryId): void`
+   - `getProductCategories(productId): List<Category>`
+
+6. **CartItem**:
+   - `addCartItem(cartItemData): CartItem`
+   - `updateCartItem(cartItemId, cartItemData): void`
+   - `removeCartItem(cartItemId): void`
+   - `getCartItemDetails(cartItemId): CartItem`
+
+7. **Category**:
+   - `createCategory(categoryData): Category`
+   - `updateCategory(categoryId, categoryData): void`
+   - `deleteCategory(categoryId): void`
+   - `getCategoryDetails(categoryId): Category`
+   - `listCategories(): List<Category>`
