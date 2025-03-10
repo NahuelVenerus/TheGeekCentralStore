@@ -8,7 +8,7 @@ export default class Category extends Model<Category> {
     @Column({ allowNull: false, type: DataType.STRING })
     declare name: string;
 
-    @Column({ allowNull: false, type: DataType.STRING })
+    @Column({ allowNull: true, type: DataType.STRING })
     declare icon: string;
 
     @CreatedAt

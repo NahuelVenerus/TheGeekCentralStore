@@ -20,10 +20,10 @@ export default class Product extends Model<Product> {
     @Column({allowNull: false, type: DataType.DOUBLE})
     declare image: string;
 
-    @Column({allowNull: false, type: DataType.INTEGER})
+    @Column({allowNull: true, type: DataType.INTEGER})
     declare total_sales: number;
 
-    @Column({allowNull: false, type: DataType.INTEGER})
+    @Column({allowNull: true, type: DataType.INTEGER})
     declare stock: number;
 
     @CreatedAt

@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
 import { ProductDTO } from 'src/dtos/product.dto';
 import Product from 'src/models/product.model';
-import { CreationAttributes } from 'sequelize';
+import { ProductRepository } from '../repository/product.repository'
 
 @Injectable()
 export class ProductService {
-  constructor(@InjectModel(Product) private productModel: typeof Product) {}
+  constructor(private readonly productRepository: ProductRepository) {}
+  
+  async getAllProducts() {
+    return await this.productRepository.findAll();
+  }
 
   async createProduct(productData: ProductDTO): Promise<Product> {
-    const newProduct = await this.productModel.create(productData as CreationAttributes<Product>);
+    const newProduct = await this.productRepository.create(productData as Product)
     return newProduct;
   }
 }

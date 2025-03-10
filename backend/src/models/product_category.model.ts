@@ -9,11 +9,11 @@ export default class ProductCategory extends Model<ProductCategory> {
 
     @ForeignKey(() => Product)
     @Column({ allowNull: false, type: DataType.STRING })
-    declare productId: string;
+    declare productId: number;
     
     @ForeignKey(() => Category)
     @Column({ allowNull: false, type: DataType.STRING })
-    declare categoryId: string;
+    declare categoryId: number;
 
     @CreatedAt
     declare createdAt: Date;
