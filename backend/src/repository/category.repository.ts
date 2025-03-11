@@ -18,3 +18,4 @@ export class CategoryRepository {
     return await this.categoryModel.findByPk(id);
   }
 }
+    
