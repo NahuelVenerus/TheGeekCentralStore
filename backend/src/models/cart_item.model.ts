@@ -12,11 +12,11 @@ export default class CartItem extends Model<CartItem> {
 
     @ForeignKey(() => User)
     @Column({ allowNull: false, type: DataType.STRING })
-    declare userId: string;
+    declare userId: number;
     
     @ForeignKey(() => Product)
     @Column({ allowNull: false, type: DataType.STRING })
-    declare productId: string;
+    declare productId: number;
 
     @CreatedAt
     declare createdAt: Date;
