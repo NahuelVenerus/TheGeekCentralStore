@@ -6,6 +6,10 @@ import ProductCategory from 'src/models/product_category.model';
 export class ProductCategoryRepository {
   constructor(@InjectModel(ProductCategory) private productCategoryModel: typeof ProductCategory) {}
 
+  // async getAllUsers() {
+  //   return await this.userRepository.getAllUsers();
+  // }
+
   async findCategoriesByProductId(productId: number): Promise<ProductCategory[]> {
     return await this.productCategoryModel.findAll({ where: { productId } });
   }

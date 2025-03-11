@@ -7,6 +7,7 @@ export class CategoryService {
   constructor(private readonly categoryRepository: CategoryRepository) {}
 
   async createCategory(name: string, icon: string) {
+    console.log("Entered service");
     return await this.categoryRepository.create({name, icon} as Category);
   }
 

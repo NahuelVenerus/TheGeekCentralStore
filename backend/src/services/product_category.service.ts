@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
-import { ProductCategoryDTO } from 'src/dtos/product_category.dto';
 import ProductCategory from 'src/models/product_category.model';
 import { ProductCategoryRepository } from 'src/repository/product_category.repository';
 

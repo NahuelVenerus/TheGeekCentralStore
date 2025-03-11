@@ -7,6 +7,8 @@ export class CategoryController {
 
   @Post('/create')
   async createCategory(@Body('name') name: string, @Body('icon') icon: string) {
+    console.log("Entered controller");
+    
     return await this.categoryService.createCategory(name, icon);
   }
 

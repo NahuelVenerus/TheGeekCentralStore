@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ProductCategoryService } from 'src/services/product_category.service';
 
-@Controller('product-category')
+@Controller('product-categories')
 export class ProductCategoryController {
   constructor(private readonly productCategoryService: ProductCategoryService) {}
 

@@ -7,6 +7,7 @@ export class CategoryRepository {
   constructor(@InjectModel(Category) private categoryModel: typeof Category) {}
 
   async create(category: Category): Promise<Category> {
+    console.log("Entered repository");
     return await this.categoryModel.create(category);
   }
 
