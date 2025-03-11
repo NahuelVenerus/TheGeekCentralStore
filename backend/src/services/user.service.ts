@@ -1,10 +1,11 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import User from '../models/user.model';
 import * as bcrypt from 'bcrypt';
 import { UserDTO } from 'src/dtos/user.dto';
 import { hashPassword } from 'src/utils/auth';
 import { UserRepository } from 'src/repository/user.repository';
+import { where } from 'sequelize';
 
 @Injectable()
 export class UserService {
@@ -19,10 +20,17 @@ export class UserService {
   }
 
   async createUser(userData: UserDTO): Promise<User> {
+    const existingUser: User | null = await this.userRepository.findOne(userData.email);
+    if (existingUser) throw new ConflictException('User with that email address already exists');
+  
     const hashedPassword = await hashPassword(userData.password);
-    const userToCreate: any = { ...userData, password: hashedPassword };    
-    return await this.userRepository.create(userToCreate);
+    
+    const newUser = await this.userRepository.create({ ...userData, password: hashedPassword } as User);
+  
+    return newUser;
   }
+  
+  
 
   async login({ email, password }): Promise<User> {
     const user = await this.userRepository.findOne(email);

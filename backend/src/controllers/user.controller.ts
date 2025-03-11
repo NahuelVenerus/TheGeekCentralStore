@@ -1,6 +1,5 @@
-import { Controller, Post, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, NotFoundException } from '@nestjs/common';
 import { UserService } from '../services/user.service';
-import { NotFoundError } from 'rxjs';
 
 @Controller('users')
 export class UserController {
@@ -14,7 +13,7 @@ export class UserController {
    @Get('/:email')
   async getUserByEmail(@Param('email') email: string) {
     const foundUser = await this.userService.getUserByEmail(email);
-    if(!foundUser) throw new NotFoundError("User doesn't exist");
+    if(!foundUser) throw new NotFoundException("User doesn't exist");
     return foundUser;
   }
 
