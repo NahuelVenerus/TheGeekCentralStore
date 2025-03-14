@@ -1,4 +1,4 @@
-import { Table, Model, Column, CreatedAt, DataType, UpdatedAt, ForeignKey } from "sequelize-typescript";
+import { Table, Model, Column, CreatedAt, DataType, UpdatedAt, ForeignKey, BelongsTo } from "sequelize-typescript";
 import ShoppingCart from "./shopping_cart.model";
 
 @Table({tableName: 'order', timestamps: true})
@@ -22,6 +22,9 @@ export default class Order extends Model<Order> {
     @Column({ allowNull: false, type: DataType.INTEGER })
     declare shoppingCartId: number;
 
+    @BelongsTo(() => ShoppingCart)
+    declare shoppingCart: ShoppingCart
+    
     @CreatedAt
     declare createdAt: Date;
 
