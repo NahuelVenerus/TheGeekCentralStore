@@ -19,5 +19,4 @@ export class CartItemService {
   async createCartItem(quantity: number, userId: number, productId: number): Promise<CartItem> {;
     return await this.cartItemRepository.create({quantity, userId, productId} as CartItem);
   }
-
 }
