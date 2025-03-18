@@ -17,7 +17,7 @@ export default class Product extends Model<Product> {
     @Column({allowNull: false, type: DataType.DOUBLE})
     declare rating: number;
 
-    @Column({allowNull: false, type: DataType.DOUBLE})
+    @Column({allowNull: false, type: DataType.STRING})
     declare image: string;
 
     @Column({allowNull: true, type: DataType.INTEGER})

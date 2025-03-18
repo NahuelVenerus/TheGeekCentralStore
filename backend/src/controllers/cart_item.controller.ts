@@ -20,9 +20,9 @@ export class CartItemController {
   @Post('/create')
   async createCartItem(
     @Body('quantity') quantity: number,
-    @Body('userId') userId: number,
+    @Body('shoppingCartId') shoppingCartId: number,
     @Body('productId') productId: number
   ): Promise<CartItem> {    
-    return this.cartItemService.createCartItem(quantity, userId, productId);
+    return this.cartItemService.createCartItem(quantity, shoppingCartId, productId);
   }
 }

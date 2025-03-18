@@ -9,6 +9,11 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "npm run start:dev",
+    "prod:drop": "npx sequelize db:drop --config config/config.js --env production",
+    "prod:create": "npx sequelize db:create --config config/config.js --env production",
+    "prod:migrate": "npx sequelize db:migrate --config config/config.js --env production",
+    "prod:seed": "npx sequelize db:seed:all --config config/config.js --env production",
+    "prod:reset": "npm run prod:drop && npm run prod:create && npm run prod:migrate && npm run prod:seed",
     "start:dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/main.ts",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -62,6 +67,9 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
+  },
+  "sequelize-cli": {
+    "config": "config/config.js"
   },
   "jest": {
     "moduleFileExtensions": [
